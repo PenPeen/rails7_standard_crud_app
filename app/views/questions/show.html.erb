@@ -12,6 +12,10 @@
         <%= @question.id %>
     </p>
     <p>
+        ID：<br>
+        <%= @question.title %>
+    </p>
+    <p>
         名前：<br>
         <%= @question.name %>
     </p>
@@ -19,5 +23,9 @@
         質問内容：<br>
         <%= @question.content %>
     </p>
+
+    <div>
+        <%= link_to '編集',edit_question_path(@question) %>
+    </div>
 </body>
 </html>
