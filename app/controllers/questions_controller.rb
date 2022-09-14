@@ -10,13 +10,15 @@ class QuestionsController < ApplicationController
     end
 
     # 作成
-    def create
-
+    def new
+        @question = Question.new
     end
 
     # 登録
-    def store
-
+    def create
+        @question = Question.new(question_params)
+        @question.save
+        redirect_to @question
     end
 
     # 質問の編集
@@ -34,4 +36,8 @@ class QuestionsController < ApplicationController
 
     end
 
+    private 
+        def question_params
+            params.require(:question).permit(:title, :name, :content)
+        end 
 end
