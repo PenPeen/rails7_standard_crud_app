@@ -5,8 +5,9 @@ class QuestionsController < ApplicationController
     end
 
     # 詳細
-    def show
-
+    def show()
+        id = params[:id]
+        @question = Question.find(id)
     end
 
     # 作成
