@@ -18,8 +18,11 @@ class QuestionsController < ApplicationController
     # 登録
     def create
         @question = Question.new(question_params)
-        @question.save
-        redirect_to @question
+        if @question.save
+            redirect_to @question
+        else
+            render 'new', status: :unprocessable_entity
+        end
     end
 
     # 質問の編集
