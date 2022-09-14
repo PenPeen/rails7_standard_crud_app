@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
     # 一覧
     def index
-
+        @questions = Question.all
     end
 
     # 詳細
