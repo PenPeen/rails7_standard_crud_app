@@ -27,5 +27,11 @@
     <div>
         <%= link_to '編集',edit_question_path(@question) %>
     </div>
+    
+    <% # link_toだと動かない。Turboが使い物にならない。ゴm...（勘弁して） ⇨　インストールする必要があるみたい。。。https://qiita.com/kazutosato/items/10a5bc04443d6b7e5bf8 %>
+    <% #button_to "削除します。", question_path(@question), method: :delete, data: { turbo: false} %>
+    <% #link_to 'Delete', question_path, data: { turbo_method: :delete } %>
+    <%=link_to 'Delete', question_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'  } %>
+
 </body>
 </html>

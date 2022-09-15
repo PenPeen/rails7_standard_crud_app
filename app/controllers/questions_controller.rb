@@ -36,13 +36,16 @@ class QuestionsController < ApplicationController
         if(@question.update(question_params))
             redirect_to questions_path
         else
-            render 'edit',status: :unprocessable_entity
+            render 'edit', status: :unprocessable_entity
         end
     end
 
     # 質問の削除
-    def destory
+    def destroy
+        @question = Question.find(params[:id])
+        @question.destroy
 
+        redirect_to questions_path, status: :see_other
     end
 
     private 
