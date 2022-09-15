@@ -71,4 +71,8 @@ group :test do
   gem "webdrivers"
 end
 
+# hotwire
 gem 'hotwire-rails'
+
+# pry
+gem 'pry-rails'

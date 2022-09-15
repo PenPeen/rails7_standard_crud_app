@@ -25,6 +25,33 @@
 <% #link_to 'Delete', question_path, data: { turbo_method: :delete } %>
 <%=link_to 'Delete', question_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'  } %>
 
+<h2>Answers</h2>
+<% @question.answer.each do |answer| %>
+    <p>
+        Name:<br>
+        <%= answer.name %>
+    </p>
+    <p>
+        Content:<br>
+        <%= answer.content %>
+    </p>
+    <%= link_to '回答の削除', [answer.question, answer],
+        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?'  }%>
+<% end %>
+
+<h2>Add a Answer</h2>
+<%= form_with model: [@question, @answer] do |form| %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :content %>
+        <%= form.text_field :content %>
+    </div>
+    <%= form.submit %>
+<% end %>
+
 <div>
     <%= link_to '戻る', questions_path %>
 </div>
